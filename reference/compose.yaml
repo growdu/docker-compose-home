@@ -1,0 +1,7 @@
+services:
+  reference:
+    image: wcjiang/reference:latest
+    restart: unless-stopped
+    ports:
+      - 10025:3000
+networks: {}

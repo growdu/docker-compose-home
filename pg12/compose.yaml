@@ -9,7 +9,19 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - /fast1/pg_data:/var/lib/postgresql/data
+      - ~/pg_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+  slave:
+    image: postgres:12.8
+    container_name: pg_slave
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ~/pg_data_slave:/var/lib/postgresql/data
+    ports:
+      - 54322:5432
 networks: {}
