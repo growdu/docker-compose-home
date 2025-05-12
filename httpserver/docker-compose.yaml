@@ -1,0 +1,17 @@
+
+services:
+  gohttpserver:
+    image: codeskyblue/gohttpserver
+    container_name: gohttpserver
+    ports:
+      - "8000:8000"
+    volumes:
+      - /dev_tool/docker/docker_data/httpserver_data:/app/public
+    command:
+      - "--auth-type"
+      - "http"
+      - "--auth-http"
+      - "growdu:123456"
+      - "--upload"
+    restart: unless-stopped
+
